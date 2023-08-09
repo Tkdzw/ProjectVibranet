@@ -6,6 +6,7 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
@@ -25,7 +26,8 @@ import { SignupComponent } from './signup/signup.component';
     PasswordModule,
     ButtonModule,
     InputTextModule,
-    DropdownModule
+    DropdownModule,
+    InputTextareaModule
   ]
 })
 export class AuthModule { }

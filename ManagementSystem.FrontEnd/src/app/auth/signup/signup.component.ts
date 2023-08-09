@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { UsersDto } from 'src/proxy/interfaces/users-dto';
+import { UserService } from 'src/proxy/services/user-service.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,19 +11,29 @@ import { UsersDto } from 'src/proxy/interfaces/users-dto';
 export class SignupComponent {
   valCheck: string[] = ['remember'];
 
-  role: string[] = ['Role1', 'Role2']
+  role: string[] = ['Sysadmin', 'Manager']
 
-    user : UsersDto ={
-      firstname:'',
-      email:'',
-      password:'',
-      role:'',
+    newUser : UsersDto ={
+      name: '',
+      username: '',
+      email: '',
+      password: '',
+      phonenumber: '',
+      address: '',
+      city: '',
+      role: '',
     }
     password!: string;
 
-    constructor(public layoutService: LayoutService) { }
+    constructor(
+      public layoutService: LayoutService,
+      public userService: UserService
+      ) { }
 
     save(){
-      
+      this.userService.create(this.newUser)
+      .subscribe((res) => {
+        console.log(res);
+      });
     }
 }
